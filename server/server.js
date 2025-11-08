@@ -12,7 +12,8 @@ connectDB();
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'http://127.0.0.1:5173'
+  'http://127.0.0.1:5173',
+  'https://mern-auth-client-bay.vercel.app'
 ]
 
 app.use(cors({origin: allowedOrigins, credentials: true}));
