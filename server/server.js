@@ -9,14 +9,20 @@ import userRouter from "./routes/userRoutes.js";
 const app = express();
 const port = process.env.PORT || 4000;
 await connectDB();
-
+console.log('hello from server');
 const allowedOrigins = [
   'http://localhost:5173',
   'http://127.0.0.1:5173',
-  'https://mern-auth-client-bay.vercel.app'
+  'https://mern-auth-client-bay.vercel.app',
 ]
 
-app.use(cors({origin: allowedOrigins, credentials: true}));
+app.use(cors({
+  origin: allowedOrigins, 
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
+  // exposedHeaders: ['set-cookie']
+}));
 app.use(express.json());
 app.use(cookieParser());
 
